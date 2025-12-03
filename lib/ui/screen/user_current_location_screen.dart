@@ -19,10 +19,10 @@ class _UserCurrentLocationScreenState extends State<UserCurrentLocationScreen> {
 
   Timer? _locationTimer;
 
-  /// 🔥 NEW: Store all visited locations (for polyline)
+  //Store all visited locations (for polyline)
   final List<LatLng> _polylineCoordinates = [];
 
-  /// 🔥 NEW: Polyline Set
+  //Polyline Set
   final Set<Polyline> _polylines = {};
 
   @override
@@ -65,10 +65,10 @@ class _UserCurrentLocationScreenState extends State<UserCurrentLocationScreen> {
 
       _updateMarker(_currentPosition!);
 
-      /// 🔥 add new point to polyline list
+      // add new point to polyline list
       _addPolylinePoint(_currentPosition!);
 
-      /// 🔥 rebuild the polyline
+      // rebuild the polyline
       _updatePolyline();
 
       if (_mapController != null) {
@@ -119,16 +119,12 @@ class _UserCurrentLocationScreenState extends State<UserCurrentLocationScreen> {
       // BLUE marker
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
 
-      // 🔥 NEW: Info Window (title + snippet)
+      //Info Window (title + snippet)
       infoWindow: InfoWindow(
         title: "My current location",
         snippet: "Lat: ${position.latitude}, Lng: ${position.longitude}",
       ),
 
-      // 🔥 Optional: react to marker tap
-      onTap: () {
-        print("Marker tapped!");
-      },
     );
   }
 
